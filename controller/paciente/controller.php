@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../config/config.php');
+require_once '../../config/config.php' ;
 
 $paciente = new Paciente();
 if (array_key_exists('id_paciente', $_POST)) {
@@ -61,12 +61,13 @@ if (array_key_exists('action', $_POST)) {
             header('Location: controller.php', true, 301);
             break;
         case 'anamnese':
-            header('Location: ../anamnese/controller.php', true, 301);
+            $id_paciente = $_POST['id_paciente'];
+            header('Location: ../anamnese/controller.php?id_paciente=' . $id_paciente, true, 301);
             exit;
             break;
     }
 } else {
     $arrPacientes = array();
     $arrPacientes = $pacienteDAO->listAll();
-    require_once '../../view/paciente/lista_pacientes.php';
+    require_once '../../view/paciente/lista_paciente.php';
 }

@@ -1,9 +1,7 @@
 <?php
 
-class PacienteDAO
-{
-    public function insert(Paciente $paciente)
-    {
+class PacienteDAO {
+    public function insert(Paciente $paciente){
         $db = Sql::connect();
         $db->beginTransaction();
         try {
@@ -33,8 +31,7 @@ class PacienteDAO
         }
     }
 
-    public function update(Paciente $paciente)
-    {
+    public function update(Paciente $paciente){
         $db = Sql::connect();
         $db->beginTransaction();
         try {
@@ -61,8 +58,7 @@ class PacienteDAO
         }
     }
 
-    public function delete(Paciente $paciente)
-    {
+    public function delete(Paciente $paciente){
         $db = Sql::connect();
         try {
             $stmt = "DELETE FROM paciente WHERE id_paciente = :ID";
@@ -77,8 +73,7 @@ class PacienteDAO
         }
     }
 
-    public function read(Paciente $paciente)
-    {
+    public function read(Paciente $paciente){
         $db = Sql::connect();
         try {
             $stmt = "SELECT * FROM paciente WHERE id_paciente = :ID";
@@ -99,8 +94,7 @@ class PacienteDAO
         return $paciente;
     }
 
-    public function listAll()
-    {
+    public function listAll(){
         $db = Sql::connect();
         try {
             $stmt = "SELECT * FROM paciente";

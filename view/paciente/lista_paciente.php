@@ -13,8 +13,7 @@
                 <button type="submit" name="action" class="btn btn-primary" value="new">Cadastrar</button>
             </form>
         </caption>
-        <?php if (count($arrPacientes) > 0) {
-    ?>
+        <?php if (count($arrPacientes) > 0) { ?>
             <tr>
                 <th>Nº do Paciente</th>
                 <th>Nome</th>
@@ -22,8 +21,7 @@
                 <th>Data de nascimento</th>
                 <th>Ações</th>
             </tr>
-            <?php foreach ($arrPacientes as $paciente) {
-        ?>
+            <?php foreach ($arrPacientes as $paciente) { ?>
                 <tr>
                     <td><?= $paciente->getId_paciente() ?></td>
                     <td><?= $paciente->getNome()?></td>
@@ -38,11 +36,8 @@
                         </form>
                     </td>
                 </tr>
-            <?php
-    } ?>
-        <?php
-} else {
-        ?>
+            <?php } ?>
+        <?php } else { ?>
             <tr>
                 <td>Nenhum registro encontrado</td>
             </tr>
