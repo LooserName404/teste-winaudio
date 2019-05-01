@@ -1,0 +1,12 @@
+{
+    "name": "thyago/anamneses",
+    "description": "Sistema de cadastro de anamneses por paciente",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Thyago Vinicius Camilo Cunha",
+            "email": "thyago.vccunha@gmail.com"
+        }
+    ],
+    "require": {}
+}
