@@ -8,6 +8,7 @@
 <body>
     <a href="../paciente/controller.php" class="btn btn-primary back-arrow"><i class="fas fa-arrow-left fa-fw"></i></a>
     <h1>Lista de Anamneses</h1>
+    <?php require_once './../../view/alertbox.php' ?>
     <div class="content">
         <table class="list">
             <caption>Informações do Paciente</caption>

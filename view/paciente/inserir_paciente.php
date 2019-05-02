@@ -8,6 +8,7 @@
 <body>
     <a href="../paciente/controller.php" class="btn btn-primary back-arrow"><i class="fas fa-arrow-left fa-fw"></i></a>
     <h1>Cadastrar Paciente</h1>
+    <?php require_once './../../view/alertbox.php' ?>
     <div class="content">
         <form class="form-list" action="../../controller/paciente/controller.php" method="post">
             <input type="hidden" name="id_paciente" value="<?= $paciente->getId_paciente() ?>">

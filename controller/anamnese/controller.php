@@ -25,7 +25,11 @@ $paciente = new Paciente();
 $pacienteDAO = new PacienteDAO();
 $paciente->setId_paciente($anamnese->getId_paciente());
 $paciente = $pacienteDAO->read($paciente);
+
 $anamneseDAO = new AnamneseDAO();
+
+$msg_success = '';
+$msg_error = '';
 
 if (array_key_exists('action', $_POST)) {
     switch ($_POST['action']) {
@@ -36,16 +40,20 @@ if (array_key_exists('action', $_POST)) {
         case 'insert':
             if ($anamnese->getDesc_anamnese() == '' || $anamnese->getResposta() == '') {
                 $post_action = 'insert';
-                echo 'Preencha todos os campos!';
+                $msg_error .= 'Preencha todos os campos!';
                 require_once '../../view/anamnese/inserir_anamnese.php';
                 exit;
             }
 
             if (!$anamneseDAO->insert($anamnese)) {
-                echo $_SESSION['error']->getMessage();
+                $msg_error .= 'Erro ao tentar inserir o registro: ' .  $_SESSION['error']->getMessage();
+                require_once '../../view/anamnese/inserir_anamnese.php';
+            } else {
+                $msg_success .= 'Anamnese cadastrada com sucesso';
+                $arrAnamnese = array();
+                $arrAnamnese = $anamneseDAO->listAll($anamnese);
+                require_once '../../view/anamnese/lista_anamnese.php';
             }
-            $id_paciente = $_POST['id_paciente'];
-            header('Location: ../anamnese/controller.php?id_paciente=' . $id_paciente, true, 301);
             break;
         case 'update':
             $post_action = 'change';
@@ -55,22 +63,25 @@ if (array_key_exists('action', $_POST)) {
         case 'change':
             if ($anamnese->getDesc_anamnese() == '' || $anamnese->getResposta() == '') {
                 $post_action = 'change';
-                echo 'Preencha todos os campos!';
+                $msg_error .= 'Preencha todos os campos!';
                 require_once '../../view/anamnese/inserir_anamnese.php';
                 exit;
+            } else {
+                $msg_success .= 'Anamnese alterada com sucesso';
+                $arrAnamnese = array();
+                $arrAnamnese = $anamneseDAO->listAll($anamnese);
+                require_once '../../view/anamnese/lista_anamnese.php';
             }
-            if (!$anamneseDAO->update($anamnese)) {
-                echo $_SESSION['error']->getMessage();
-            }
-            $id_paciente = $_POST['id_paciente'];
-            header('Location: ../anamnese/controller.php?id_paciente=' . $id_paciente, true, 301);
             break;
         case 'delete':
             if (!$anamneseDAO->delete($anamnese)) {
-                echo $_SESSION['error']->getMessage();
+                $msg_error .= 'Erro ao tentar excluir o registro' . $_SESSION['error']->getMessage();
+            } else {
+                $msg_success .= 'Anamnese excluída com sucesso';
+                $arrAnamnese = array();
+                $arrAnamnese = $anamneseDAO->listAll($anamnese);
+                require_once '../../view/anamnese/lista_anamnese.php';
             }
-            $id_paciente = $_POST['id_paciente'];
-            header('Location: ../anamnese/controller.php?id_paciente=' . $id_paciente, true, 301);
             break;
         case 'info':
             $anamnese = $anamneseDAO->read($anamnese);

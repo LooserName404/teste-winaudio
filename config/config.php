@@ -9,6 +9,8 @@ spl_autoload_register(function ($dao) {
     require_once('..'. DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'dao' . DIRECTORY_SEPARATOR . rtrim($dao, 'DAO') . '.dao.php');
 });
 
+$msg_success = '';
+$msg_error = '';
 
 function cpfFormatado($cpf){
     $cpf = str_pad($cpf,11,'0',STR_PAD_LEFT);
@@ -17,3 +19,4 @@ function cpfFormatado($cpf){
     $cpf = substr_replace($cpf,'-',11,0);
     return $cpf;
 }
+?>

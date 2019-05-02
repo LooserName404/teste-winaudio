@@ -10,6 +10,7 @@
         <form action="controller.php" class="btn-holder" method="post">
             <button type="submit" name="action" class="btn btn-primary" value="new">Cadastrar</button>
         </form>
+        <?php require_once './../../view/alertbox.php' ?>
         <div class="content">
             <?php if (count($arrPacientes) > 0) { ?>
                 <?php foreach ($arrPacientes as $paciente) { ?>
