@@ -6,11 +6,15 @@
     <title>Pacientes</title>
 </head>
 <body>
-    <form action="../../controller/paciente/controller.php" method="post">
-        <input type="hidden" name="id_paciente" value="<?= $paciente->getId_paciente() ?>">
-        <label for="nome">Nome: <input type="text" name="nome" value="<?= $paciente->getNome() ?>"></label><br>
-        <label for="idade">CPF: <input type="text" maxlength="11" name="cpf" value="<?= $paciente->getCpf() ?>"></label><br>
-        <label for="dt_nascimento">Data de nascimento: <input type="date" name="dt_nascimento" value="<?= $paciente->getDt_nascimento() ?>"></label><br>
-        <input type="submit" name="action" id="action" value="<?= $post_action ?>">
-    </form>
+    <a href="../paciente/controller.php" class="btn btn-primary back-arrow"><i class="fas fa-arrow-left fa-fw"></i></a>
+    <h1>Cadastrar Paciente</h1>
+    <div class="content">
+        <form class="form-list" action="../../controller/paciente/controller.php" method="post">
+            <input type="hidden" name="id_paciente" value="<?= $paciente->getId_paciente() ?>">
+            <input type="text" name="nome" placeholder="Nome" value="<?= $paciente->getNome() ?>">
+            <input type="text" maxlength="11" placeholder="CPF" name="cpf" value="<?= $paciente->getCpf() ?>">
+            <input type="text" placeholder="Data de Nascimento" onfocus="(this.type='date')" onblur="(this.type='text')" name="dt_nascimento" min="1900-01-01" value="<?= $paciente->getDt_nascimento() ?>">
+            <button type="submit" name="action" class="btn-primary" id="action" value="<?= $post_action ?>">Salvar</button>
+        </form>
+    </div>
 </body>

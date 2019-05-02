@@ -98,7 +98,6 @@ class PacienteDAO {
         $db = Sql::connect();
         try {
             $stmt = "SELECT * FROM paciente";
-            
             $res = $db->prepare($stmt);
             $res->execute();
         } catch (PDOException $e) {

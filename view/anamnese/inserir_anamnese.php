@@ -6,35 +6,39 @@
     <title>Anamnese <?= $paciente->getNome() ?></title>
 </head>
 <body>
-    <div class="container">
-        <table class="table table-sm">
-            <tr class="thead-light">
+    <a href="controller.php?id_paciente=<?= $anamnese->getId_paciente() ?>" class="btn btn-primary back-arrow"><i class="fas fa-arrow-left fa-fw"></i></a>
+    <h1>Cadastrar Anamnese</h1>
+    <div class="content">
+        <table class="list">
+            <caption>Informações do Paciente</caption>
+            <tr>
                 <th>Nº do paciente</th>
                 <td><?= $paciente->getId_paciente() ?></td>
             </tr>
-            <tr class="thead-light">
+            <tr>
                 <th>Nome</th>
                 <td><?= $paciente->getNome() ?></td>
             </tr>
-            <tr class="thead-light">
+            <tr>
                 <th>CPF</th>
-                <td><?= $paciente->getCpf() ?></td>
+                <td><?= cpfFormatado($paciente->getCpf()) ?></td>
             </tr>
-            <tr class="thead-light">
+            <tr>
                 <th>Data de Nascimento</th>
-                <td><?= $paciente->getDt_nascimento() ?></td>
+                <td><?= date("d/m/Y", strtotime($paciente->getDt_nascimento())) ?></td>
             </tr>
         </table>
         <br>
-        <form action="../../controller/anamnese/controller.php" method="post">
+        <form action="../../controller/anamnese/controller.php" class="form-list" method="post">
+            <input type="hidden" name="nr_anamnese" value="<?= $anamnese->getNr_anamnese() ?>">
             <input type="hidden" name="id_paciente" value="<?= $anamnese->getId_paciente() ?>">
-            <label for="desc_anamnese">Anamnese: <textarea id="desc_anamnese" rows="1" cols="100" name="desc_anamnese"><?= $anamnese->getDesc_anamnese() ?></textarea></label>
+            <textarea placeholder="Anamnese" id="desc_anamnese" rows="3" cols="100" name="desc_anamnese"><?= $anamnese->getDesc_anamnese() ?></textarea>
             <div>
-                Resposta: 
-                <input type="radio" name="resposta" id="resposta_sim" value="1"><label for="resposta_sim">Sim</label>
-                <input type="radio" name="resposta" id="resposta_nao" value="0"><label for="resposta_nao">Não</label>
+                Resposta:
+                <input type="radio" name="resposta" id="resposta_sim" value="1" <?= $anamnese->getResposta() == 1 ? 'checked' : '' ?>><label for="resposta_sim">Sim</label>
+                <input type="radio" name="resposta" id="resposta_nao" value="0" <?= $anamnese->getResposta() == 0 ? 'checked' : '' ?>><label for="resposta_nao">Não</label>
             </div>
-            <button type="submit" name="action" value="<?= $post_action ?>">Salvar</button>
+            <button type="submit" name="action" class="btn-primary" value="<?= $post_action ?>">Salvar</button>
         </form>
     </div>
 </body>

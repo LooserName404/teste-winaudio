@@ -47,7 +47,7 @@ class AnamneseDAO {
             $stmt = "UPDATE anamnese SET
                 desc_anamnese = :DESC_ANAMNESE,
                 resposta = :RESPOSTA
-            WHERE id_paciente = :ID_PACIENTE AND nr_anamnese = :";
+            WHERE id_paciente = :ID_PACIENTE AND nr_anamnese = :NR_ANAMNESE";
             $nr_anamnese = $anamnese->getNr_anamnese();
             $id_paciente = $anamnese->getId_paciente();
             $desc_anamnese = $anamnese->getDesc_anamnese();

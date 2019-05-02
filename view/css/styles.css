@@ -1,0 +1,280 @@
+* {
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+h1{
+    text-align: center;
+    color: #273c75;
+}
+
+/* Botões */
+button, .btn{
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-primary{
+    background-color: #00a8ff;
+    color: #fff;
+}
+
+.btn-primary.outline{
+    border: 2px solid #00a8ff;
+    color: #00a8ff;
+}
+
+.btn-warning{
+    background-color: #fbc531;
+    color: #fff;
+}
+
+.btn-warning.outline{
+    border: 2px solid #fbc531;
+    color: #fbc531;
+}
+
+.btn-danger{
+    background-color: #e84118;
+    color: #fff;
+}
+
+.btn-danger.outline{
+    border: 2px solid #e84118;
+    color: #e84118;
+}
+
+.outline {
+    padding: 6px;
+    background-color: #fff;
+}
+
+.back-arrow{
+    float: left;
+}
+
+/* Especificações dos formulários */
+.form-list {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.btn-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+input[type=text], input[type=date], input[type=password] {
+    display: block;
+    border: none;
+    width: 200px;
+    border-bottom: 2px solid #273c75;
+    line-height: 30px;
+    transition: width 1s ease-in-out, all 0.5s;
+    padding: 2px;
+    margin: 5px;
+    text-align: center;
+}
+
+input[type=text]:focus, input[type=date]:focus, input[type=password]:focus{
+    outline: none;
+    border-bottom: 2px solid #00a8ff;
+    width: 400px;
+    -moz-transition: width 1s ease-in-out, all 0.5s;
+    -webkit-transition: width 1s ease-in-out, all 0.5s;
+    transition: width 1s ease-in-out, all 0.5s;
+}
+
+textarea{
+    display: block;
+    border: none;
+    width: 400px;
+    border-bottom: 2px solid #273c75;
+    line-height: 30px;
+    transition: width 1s ease-in-out, all 0.5s;
+    padding: 2px;
+    margin: 5px;
+    text-align: center;
+}
+
+textarea:focus{
+    outline: none;
+    border-bottom: 2px solid #00a8ff;
+    width: 800px;
+    -moz-transition: width 1s ease-in-out, all 0.5s;
+    -webkit-transition: width 1s ease-in-out, all 0.5s;
+    transition: width 1s ease-in-out, all 0.5s;
+}
+
+input::placeholder{
+    color: #273c75;
+    opacity: 0.5;
+}
+
+input:focus::placeholder{
+    opacity: 0.3;
+}
+
+input[type=date]{
+    color: #273c75;
+}
+
+input[type=date]:focus{
+    color: black;
+    opacity: 1;
+}
+
+input[type="date"]::-webkit-clear-button, input[type="date"]::-moz-clear-button,
+input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-moz-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+    opacity: 0;
+}
+
+/* Cards de pacientes */
+
+.card{
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    flex: 25%;
+    max-width: 250px;
+    padding: 30px 15px;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 0 3px #273c75;
+}
+
+.card div{
+    flex: 100%;
+    padding: 6px;
+    margin: 3px;
+}
+
+.card div:not(:last-child){
+    border-bottom: 1px solid gray;
+}
+
+.card .nome{
+    font-size: 22px;
+    font-weight: bolder;
+    color: #273c75;
+}
+
+.card span{
+    font-size: 12px;
+    display: block;
+    color: #273c75;
+}
+
+@media screen and (max-width: 1024px){
+    .card{
+        flex: 50%;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .card{
+        flex: 100%;
+    }
+}
+
+/* Especificações das tabelas */
+
+table{
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+table.table caption{
+    background-color: #273c75;
+    border-radius: 5px;
+    line-height: 35px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+table.table tr{
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid #273c75;
+}
+
+table.table tr th{
+    flex: 1;
+    margin: 2px;
+    text-align: center;
+}
+
+table.table tr td{
+    flex: 1;
+    margin: 2px;
+    text-align: center;
+}
+
+table.list caption{
+    background-color: #273c75;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 3px;
+}
+
+table.list tr{
+    display: flex;
+    border-bottom: 1px solid #273c75;
+}
+
+table.list tr th{
+    flex: 25%;
+    text-align: left;
+    padding: 3px;
+    color: #fff;
+    align-self: left;
+    border-radius: 5px;
+}
+
+table.list tr:nth-child(even) th{
+    background-color: #487eb0;
+}
+
+table.list tr:nth-child(odd) th{
+    background-color: #40739e;
+}
+
+table.list tr td{
+    flex: 75%;
+    padding: 3px;
+}
